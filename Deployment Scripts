@@ -1,0 +1,10 @@
+Deployment Scripts
+#!/bin/bash
+
+# Deploy token program
+anchor deploy --program-name lunq_token --provider.cluster devnet
+
+# Initialize bonding curve
+solana program call <PROGRAM_ID> initialize \
+  --args 1000000 \  # Initial price: 1 SOL = 1,000,000 LQ
+  --keypair ~/.config/solana/deployer.json
